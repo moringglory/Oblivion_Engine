@@ -99,8 +99,8 @@ public class OEBlock {
             oreThreshold = 0.882f;
             oreScale = 26.680953f;
         }};
-        IQC_980D = new OEIntelligentQuantumComputer("qwq"){{
-            requirements(Category.units, with(Items.silicon, 50, Items.beryllium, 75, Items.tungsten, 40));
+        IQC_980D = new OEIntelligentQuantumComputer("IntelligentQuantumComputer_980D"){{
+            requirements(Category.logic, with(Items.silicon, 50, Items.beryllium, 75, Items.tungsten, 40));
             hasPower = true;
             consumePower(2.5f);
             size = 3;
