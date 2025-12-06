@@ -1,6 +1,7 @@
 package oblivionengine;
 
 import arc.Core;
+import oblivionengine.content.OEPlanets;
 import oblivionengine.content.OETechTree;
 import arc.Events;
 import arc.util.Time;
@@ -11,7 +12,7 @@ import mindustry.ui.dialogs.BaseDialog;
 import oblivionengine.content.core.Items.OEItems;
 import oblivionengine.content.core.Blcoks.OEBlock;
 import oblivionengine.content.core.Units.OEUnits;
-import oblivionengine.content.OEIcon;
+import oblivionengine.content.OEContent;
 
 public class OblivionEngine extends Mod {
     public static final String MOD_NAME = "oblivionengine";
@@ -33,9 +34,10 @@ public class OblivionEngine extends Mod {
 
     @Override
     public void loadContent() {
-        OEIcon.load();
+        OEContent.load();
         OEItems.load();
         OEBlock.load();
+        OEPlanets.load();
         OEUnits.load();
         OETechTree.load();
     }
