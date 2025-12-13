@@ -1,13 +1,15 @@
 package oblivionengine.content.core.Blcoks;
 
 import arc.struct.Seq;
-import mindustry.content.Blocks;
-import mindustry.content.UnitTypes;
+import mindustry.content.*;
 import mindustry.entities.Units;
+import mindustry.type.Liquid;
+import mindustry.type.UnitType;
 import mindustry.world.blocks.environment.OreBlock;
 import mindustry.world.blocks.payloads.Constructor;
+import mindustry.world.blocks.units.Reconstructor;
+import mindustry.world.blocks.units.UnitFactory;
 import oblivionengine.content.OEFx;
-import mindustry.content.Fx;
 import mindustry.entities.bullet.PointBulletType;
 import mindustry.entities.part.RegionPart;
 import mindustry.entities.pattern.ShootBarrel;
@@ -16,7 +18,6 @@ import mindustry.entities.pattern.ShootPattern;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.world.Block;
-import mindustry.content.Items;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BuildVisibility;
@@ -31,7 +32,7 @@ public class OEBlock {
             //炮台
             precursor,
             //工厂
-            rockcrusher,
+            rockcrusher,centrifuge,groundFactory,
             //矿石
             UraniumOre,
             //智能量子计算机
@@ -84,16 +85,33 @@ public class OEBlock {
                     }}
             );
         }};
-        rockcrusher = new Constructor("rockcrusher"){{
-            requirements(Category.units, with(Items.silicon, 50, Items.beryllium, 75, Items.tungsten, 40));
-            regionSuffix = "-dark";
-            hasPower = true;
-            buildSpeed = 0.6f;
-            consumePower(2.5f);
+        rockcrusher = new UnitFactory("rockcrusher"){{
+            requirements(Category.units, with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
+            plans = Seq.with(
+                    new UnitPlan(UnitTypes.reign, 60f * 15, with(Items.silicon, 10, Items.lead, 10))
+//                    new UnitPlan(UnitTypes.crawler, 60f * 10, with(Items.silicon, 8, Items.coal, 10)),
+//                    new UnitPlan(UnitTypes.nova, 60f * 40, with(Items.silicon, 30, Items.lead, 20, Items.titanium, 20))
+            );
             size = 3;
-            //TODO expand this list
-            filter = Seq.with(OEBlock.precursor);
+            consumePower(1.2f);
+            consumeLiquid(Liquids.water,1f);
+            researchCostMultiplier = 0.5f;
         }};
+//        centrifuge = new Reconstructor("centrifuge"){{
+//            requirements(Category.units, with(Items.lead, 2000, Items.silicon, 1000, Items.titanium, 2000, Items.thorium, 750, Items.plastanium, 450, Items.phaseFabric, 600));
+//
+//            size = 6;
+//            consumePower(13f);
+////            consumeItems(with(Items.silicon, 850, Items.titanium, 750, Items.plastanium, 650));
+//            consumeLiquid(Liquids.water, 1f);
+//
+//            constructTime = 60f * 60f * 1.5f;
+//            liquidCapacity = 60f;
+//
+//            upgrades.addAll(
+//                    new UnitType[]{OEUnits.depleted_uranium}
+//            );
+//        }};
         UraniumOre = new OreBlock(OEItems.Uranium){{
             oreDefault = true;
             oreThreshold = 0.882f;

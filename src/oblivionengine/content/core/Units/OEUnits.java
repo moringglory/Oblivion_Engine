@@ -5,6 +5,7 @@ import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.StatusEffects;
+import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.FlakBulletType;
 import mindustry.entities.bullet.LaserBulletType;
@@ -19,26 +20,42 @@ import oblivionengine.expand.Units.OEUnitType;
 public class OEUnits {
     public static UnitType awa;
     //public static OEPayloadItems qwq;
-    public static UnitType dummyPayload;
+    public static UnitType depleted_uranium;
 
     public static void load(){
 //        qwq = new OEPayloadItems() {
 //
 //        };
-        dummyPayload = new OEUnitType("dummy") {
+        depleted_uranium = new UnitType("depleted_uranium") {
             {
-                this.health = 1f;
-                this.speed = 0f;
-                this.researchCostMultiplier = 0.5f;
-                this.weapons.clear();
-                this.targetAir = false;
-                this.targetGround = false;
-                this.itemCapacity = 0;
-                this.hitSize = 0f;
+                health = 1f;
+                speed = 0f;
+                researchCostMultiplier = 0.5f;
+                weapons.clear();
+                targetAir = false;
+                targetGround = false;
+                itemCapacity = 0;
+                hitSize = 0f;
+                drawCell = false;
+                flying = false;
+                researchCostMultiplier = 0.5f;
+//                hitSize = 8f;
+//                weapons.add(new Weapon("large-weapon"){{
+//                    reload = 13f;
+//                    x = 4f;
+//                    y = 2f;
+//                    top = false;
+//                    ejectEffect = Fx.casing1;
+//                    bullet = new BasicBulletType(2.5f, 9){{
+//                        width = 7f;
+//                        height = 9f;
+//                        lifetime = 60f;
+//                    }};
+//                }});
             }
         };
-        dummyPayload.constructor = UnitEntity::create;
-        awa = new OEUnitType("awa"){
+        depleted_uranium.constructor = UnitEntity::create;
+        awa = new UnitType("awa"){
             {
                 this.speed = 1.14F;
                 this.accel = 0.04F;

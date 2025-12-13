@@ -1,5 +1,6 @@
 package oblivionengine.content.core.Items;
 
+import arc.graphics.Color;
 import mindustry.type.Item;
 
 public class OEItems {
@@ -9,6 +10,7 @@ public class OEItems {
             alwaysUnlocked = false;
             cost = 0.5f;
             hardness = 5;
+            color = Color.valueOf("#54D77D");
         }};
     }
 }
