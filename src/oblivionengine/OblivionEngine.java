@@ -36,6 +36,7 @@ public class OblivionEngine extends Mod {
     public void loadContent() {
         OEContent.load();
         OEItems.load();
+        OEUnits.load();
         OEBlock.load();
         OEPlanets.load();
         OEUnits.load();

@@ -88,7 +88,7 @@ public class OEBlock {
         rockcrusher = new UnitFactory("rockcrusher"){{
             requirements(Category.units, with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
             plans = Seq.with(
-                    new UnitPlan(UnitTypes.reign, 60f * 15, with(Items.silicon, 10, Items.lead, 10))
+                    new UnitPlan(OEUnits.depleted_uranium, 60f * 15, with(Items.silicon, 10, Items.lead, 10))
 //                    new UnitPlan(UnitTypes.crawler, 60f * 10, with(Items.silicon, 8, Items.coal, 10)),
 //                    new UnitPlan(UnitTypes.nova, 60f * 40, with(Items.silicon, 30, Items.lead, 20, Items.titanium, 20))
             );
@@ -97,21 +97,6 @@ public class OEBlock {
             consumeLiquid(Liquids.water,1f);
             researchCostMultiplier = 0.5f;
         }};
-//        centrifuge = new Reconstructor("centrifuge"){{
-//            requirements(Category.units, with(Items.lead, 2000, Items.silicon, 1000, Items.titanium, 2000, Items.thorium, 750, Items.plastanium, 450, Items.phaseFabric, 600));
-//
-//            size = 6;
-//            consumePower(13f);
-////            consumeItems(with(Items.silicon, 850, Items.titanium, 750, Items.plastanium, 650));
-//            consumeLiquid(Liquids.water, 1f);
-//
-//            constructTime = 60f * 60f * 1.5f;
-//            liquidCapacity = 60f;
-//
-//            upgrades.addAll(
-//                    new UnitType[]{OEUnits.depleted_uranium}
-//            );
-//        }};
         UraniumOre = new OreBlock(OEItems.Uranium){{
             oreDefault = true;
             oreThreshold = 0.882f;
