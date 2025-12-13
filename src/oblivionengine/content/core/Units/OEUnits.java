@@ -2,86 +2,42 @@ package oblivionengine.content.core.Units;
 
 //distributionUrl=https\://services.gradle.org/distributions/gradle-8.10.2-bin.zip
 import arc.graphics.Color;
-import arc.graphics.g2d.TextureRegion;
-import arc.util.io.Writes;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.StatusEffects;
-import mindustry.ctype.UnlockableContent;
 import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.FlakBulletType;
 import mindustry.entities.bullet.LaserBulletType;
 import mindustry.gen.Sounds;
 import mindustry.gen.UnitEntity;
-import mindustry.type.ItemStack;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.ammo.ItemAmmoType;
 import mindustry.world.meta.BlockFlag;
-import oblivionengine.expand.Payload.OEPayloadItems;
 import oblivionengine.expand.Units.OEUnitType;
 
 public class OEUnits {
     public static UnitType awa;
-    public static OEPayloadItems qwq;
+    //public static OEPayloadItems qwq;
+    public static UnitType dummyPayload;
 
     public static void load(){
-        qwq = new OEPayloadItems() {
-            @Override
-            public void set(float x, float y, float rotation) {
-
-            }
-
-            @Override
-            public void draw() {
-
-            }
-
-            @Override
-            public void drawShadow(float alpha) {
-
-            }
-
-            @Override
-            public float size() {
-                return 0;
-            }
-
-            @Override
-            public float x() {
-                return 0;
-            }
-
-            @Override
-            public float y() {
-                return 0;
-            }
-
-            @Override
-            public ItemStack[] requirements() {
-                return new ItemStack[0];
-            }
-
-            @Override
-            public float buildTime() {
-                return 0;
-            }
-
-            @Override
-            public void write(Writes write) {
-
-            }
-
-            @Override
-            public TextureRegion icon() {
-                return null;
-            }
-
-            @Override
-            public UnlockableContent content() {
-                return null;
+//        qwq = new OEPayloadItems() {
+//
+//        };
+        dummyPayload = new OEUnitType("dummy") {
+            {
+                this.health = 1f;
+                this.speed = 0f;
+                this.researchCostMultiplier = 0.5f;
+                this.weapons.clear();
+                this.targetAir = false;
+                this.targetGround = false;
+                this.itemCapacity = 0;
+                this.hitSize = 0f;
             }
         };
+        dummyPayload.constructor = UnitEntity::create;
         awa = new OEUnitType("awa"){
             {
                 this.speed = 1.14F;
