@@ -39,7 +39,6 @@ public class OblivionEngine extends Mod {
         OEUnits.load();
         OEBlock.load();
         OEPlanets.load();
-        OEUnits.load();
         OETechTree.load();
     }
 }

@@ -32,7 +32,7 @@ public class OEBlock {
             //炮台
             precursor,
             //工厂
-            rockcrusher,centrifuge,groundFactory,
+            rockcrusher,centrifuge,
             //矿石
             UraniumOre,
             //智能量子计算机
@@ -96,6 +96,19 @@ public class OEBlock {
             consumePower(1.2f);
             consumeLiquid(Liquids.water,1f);
             researchCostMultiplier = 0.5f;
+        }};
+        centrifuge = new Reconstructor("centrifuge"){{
+            requirements(Category.units, with(Items.copper, 200, Items.lead, 120, Items.silicon, 90));
+
+            size = 3;
+            consumePower(3f);
+            consumeItems(with(Items.silicon, 40, Items.graphite, 40));
+
+            constructTime = 60f * 10f;
+
+            upgrades.addAll(
+                    new UnitType[]{OEUnits.depleted_uranium, OEUnits.ingot}
+            );
         }};
         UraniumOre = new OreBlock(OEItems.Uranium){{
             oreDefault = true;

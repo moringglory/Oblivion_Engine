@@ -20,7 +20,7 @@ import oblivionengine.expand.Units.OEUnitType;
 public class OEUnits {
     public static UnitType awa;
     //public static OEPayloadItems qwq;
-    public static UnitType depleted_uranium;
+    public static UnitType depleted_uranium,ingot;
 
     public static void load(){
 //        qwq = new OEPayloadItems() {
@@ -35,26 +35,35 @@ public class OEUnits {
                 targetAir = false;
                 targetGround = false;
                 itemCapacity = 0;
-                hitSize = 0f;
+                hitSize = 16f;
                 drawCell = false;
                 flying = false;
                 researchCostMultiplier = 0.5f;
-//                hitSize = 8f;
-//                weapons.add(new Weapon("large-weapon"){{
-//                    reload = 13f;
-//                    x = 4f;
-//                    y = 2f;
-//                    top = false;
-//                    ejectEffect = Fx.casing1;
-//                    bullet = new BasicBulletType(2.5f, 9){{
-//                        width = 7f;
-//                        height = 9f;
-//                        lifetime = 60f;
-//                    }};
-//                }});
+                drawSoftShadow = false;
+                autoFindTarget = false;
+                useUnitCap = true;
+                logicControllable = false;
+                playerControllable = false;
+                controlSelectGlobal = false;
             }
         };
         depleted_uranium.constructor = UnitEntity::create;
+        ingot = new UnitType("ingot") {
+            {
+                health = 50f;
+                speed = 0f;
+                researchCostMultiplier = 0.5f;
+                weapons.clear();
+                targetAir = false;
+                targetGround = false;
+                itemCapacity = 0;
+                hitSize = 8f;
+                drawCell = false;
+                flying = false;
+                researchCostMultiplier = 0.5f;
+            }
+        };
+        ingot.constructor = UnitEntity::create;
         awa = new UnitType("awa"){
             {
                 this.speed = 1.14F;

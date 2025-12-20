@@ -6,26 +6,19 @@ import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
-import arc.math.geom.Geometry;
+import arc.scene.style.TextureRegionDrawable;
+import arc.scene.ui.ImageButton;
 import arc.scene.ui.layout.*;
-import arc.util.Log;
-import arc.util.Time;
 import arc.util.Tmp;
-import mindustry.Vars;
-import mindustry.core.World;
-import mindustry.game.Team;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
-import mindustry.type.Item;
 import mindustry.ui.Styles;
 import mindustry.world.*;
 import oblivionengine.content.OEContent;
 
+import java.awt.*;
+
 import static mindustry.Vars.*;
-import static mindustry.Vars.content;
-import static mindustry.Vars.platform;
-import static mindustry.Vars.player;
 
 public class OEIntelligentQuantumComputer extends Block {
     public static Cons2<Booting, Boolean> blockDrawer = (building, valid) -> {
@@ -73,12 +66,16 @@ public class OEIntelligentQuantumComputer extends Block {
             super.draw();
             blockDrawer.get(this,true);
         }
+//        @Override
+//        public void buildConfiguration(Table table) {
+////            table.table(inner -> {
+////                inner
+////            }).width(90);
+//
+//        }
         @Override
-        public void buildConfiguration(Table table) {
-//            table.table(inner -> {
-//                inner
-//            }).width(90);
-
+        public void buildConfiguration(Table table){
+            ImageButton style =
         }
     }
 }
